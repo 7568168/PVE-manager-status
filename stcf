@@ -375,12 +375,10 @@ EOF
 					
 					// 通电时间
 					let pot = v.power_on_time?.hours;
-					let pots = v.power_on_time?.hours;
-					// 假设每个月30天，每年360天（忽略闰年）  
+					let pots = pot;
+					// 计算 
 					let years = Math.floor(pot / (360 * 24));
 					pot -= years * 360 * 24;
-					// let months = Math.floor(pot / (30 * 24));  
-					// pot -= months * 30 * 24;  
 					let days = Math.floor(pot / 24);  
 					pot -= days * 24;  
 					// 格式化并重新赋值给pot

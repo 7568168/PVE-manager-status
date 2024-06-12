@@ -375,9 +375,22 @@ EOF
 					
 					// 通电时间
 					let pot = v.power_on_time?.hours;
-					let poth = v.power_cycle_count;
+					let pots = v.power_on_time?.hours;
+					// 假设每个月30天，每年360天（忽略闰年）  
+					let years = Math.floor(pot / (360 * 24));
+					pot -= years * 360 * 24;
+					let months = Math.floor(pot / (30 * 24));  
+					pot -= months * 30 * 24;  
+					let days = Math.floor(pot / 24);  
+					pot -= days * 24;  
+					// 格式化并重新赋值给pot
+					pot = years +'年'+ months +'月'+ days +'日'+ pot +'小时';
 					
-					pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
+					let poth = v.power_cycle_count;
+					//let wlc = v.Wear_Leveling_Count;
+					
+					//pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
+					pot = ( pot !== undefined ) ? (" | 通电: " + pot + ',计' + pots + '小时' + ( poth ? poth + '次 ' : '' )) : '';
 					
 					// smart状态
 					let smart = v.smart_status?.passed;

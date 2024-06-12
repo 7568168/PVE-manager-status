@@ -384,7 +384,7 @@ EOF
 					let days = Math.floor(pot / 24);  
 					pot -= days * 24;  
 					// 格式化并重新赋值给pot
-					pot = years +'年'+ months +'月'+ days +'日'+ pot +'小时';
+					pot = years +'年'+ days +'天'+ pot +'小时';
 					
 					let poth = v.power_cycle_count;
 					//let wlc = v.Wear_Leveling_Count;

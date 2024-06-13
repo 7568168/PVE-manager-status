@@ -349,7 +349,7 @@ if $sODisksInfo;then
 EOF
 
 		cat >> $contentforpvejs << EOF
-		/* {
+		{
 			  itemId: 'sd${sdi}0',
 			  colspan: 2,
 			  printBar: false,
@@ -382,7 +382,8 @@ EOF
 					return '无法获得有效消息';
 				};
 			 }
-		}, */
+		},
+		
 		{
 			  itemId: 'sdpo',
 			  colspan: 2,
@@ -413,7 +414,7 @@ EOF
 					//let wlc = v.Wear_Leveling_Count;
 					
 					//pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
-					pot = ( pot !== undefined ) ? ("通电时间: " + pot + ',计' + pots + '小时，通电次数:' + ( poth ? poth + '次 ' : '' )) : '';
+					pot = ( pot !== undefined ) ? ("通电时间:" + pot + ',计' + pots + '小时，通电次数:' + ( poth ? poth + '次 ' : '' )) : '';
 					
 					// smart状态
 					let smart = v.smart_status?.passed;

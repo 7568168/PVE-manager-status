@@ -373,6 +373,33 @@ EOF
 					let temp = v.temperature?.current;
 					temp = ( temp !== undefined ) ? " | 温度: " + temp + '°C' : '' ;
 					
+					
+					
+					let t = model + temp ;
+					//console.log(t);
+					return t;
+				}catch(e){
+					return '无法获得有效消息';
+				};
+			 }
+		},
+		
+		cat >> $contentforpvejs << EOF
+		{
+			  itemId: 'sd${sdi}0',
+			  colspan: 2,
+			  printBar: false,
+			  title: gettext('硬盘通电'),
+			  textField: 'sd${sdi}',
+			  renderer:function(value){
+				//return value;
+				try{
+					let  v = JSON.parse(value);
+					console.log(v)
+					if (v.standy === true) {
+						return '休眠中'
+					}
+					
 					// 通电时间
 					let pot = v.power_on_time?.hours;
 					let pots = pot;
@@ -388,7 +415,7 @@ EOF
 					//let wlc = v.Wear_Leveling_Count;
 					
 					//pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
-					pot = ( pot !== undefined ) ? (" | 通电: " + pot + ',计' + pots + '小时' + ( poth ? poth + '次 ' : '' )) : '';
+					pot = ( pot !== undefined ) ? ("通电时间: " + pot + ',计' + pots + '小时，通电次数:' + ( poth ? poth + '次 ' : '' )) : '';
 					
 					// smart状态
 					let smart = v.smart_status?.passed;
@@ -399,7 +426,7 @@ EOF
 					}
 					
 					
-					let t = model + temp  + pot + smart;
+					let t = pot + smart;
 					//console.log(t);
 					return t;
 				}catch(e){
@@ -407,6 +434,7 @@ EOF
 				};
 			 }
 		},
+		
 EOF
 		let sdi++
 	done

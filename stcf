@@ -425,9 +425,9 @@ EOF
 					}
 					
 					
-					let s = pot + smart;
-					//console.log(s);
-					return s;
+					let t = pot + smart;
+					//console.log(t);
+					return t;
 				}catch(e){
 					return '无法获得有效消息';
 				};

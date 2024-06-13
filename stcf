@@ -349,40 +349,40 @@ if $sODisksInfo;then
 EOF
 
 		cat >> $contentforpvejs << EOF
-		{
-			  itemId: 'sd${sdi}0',
-			  colspan: 2,
-			  printBar: false,
-			  title: gettext('${sdtype}'),
-			  textField: 'sd${sdi}',
-			  renderer:function(value){
-				//return value;
-				try{
-					let  v = JSON.parse(value);
-					console.log(v)
-					if (v.standy === true) {
-						return '休眠中'
-					}
+		// {
+			  // itemId: 'sd${sdi}0',
+			  // colspan: 2,
+			  // printBar: false,
+			  // title: gettext('${sdtype}'),
+			  // textField: 'sd${sdi}',
+			  // renderer:function(value){
+				return value;
+				// try{
+					// let  v = JSON.parse(value);
+					// console.log(v)
+					// if (v.standy === true) {
+						// return '休眠中'
+					// }
 					
-					//名字
-					let model = v.model_name;
-					if (! model) {
-						return '找不到硬盘，直通或已被卸载';
-					}
-					// 温度
-					let temp = v.temperature?.current;
-					temp = ( temp !== undefined ) ? " | 温度: " + temp + '°C' : '' ;
+					名字
+					// let model = v.model_name;
+					// if (! model) {
+						// return '找不到硬盘，直通或已被卸载';
+					// }
+					温度
+					// let temp = v.temperature?.current;
+					// temp = ( temp !== undefined ) ? " | 温度: " + temp + '°C' : '' ;
 					
 					
 					
-					let t = model + temp ;
-					//console.log(t);
-					return t;
-				}catch(e){
-					return '无法获得有效消息';
-				};
-			 }
-		},
+					// let t = model + temp ;
+					console.log(t);
+					// return t;
+				// }catch(e){
+					// return '无法获得有效消息';
+				// };
+			 // }
+		// },
 		{
 			  itemId: 'sdpo',
 			  colspan: 2,

@@ -383,12 +383,13 @@ EOF
 				};
 			 }
 		},
+		
 		{
-			  itemId: 'sd${sdi}0',
+			  itemId: 'sdpo',
 			  colspan: 2,
 			  printBar: false,
 			  title: gettext('硬盘通电'),
-			  textField: 'sd${sdi}',
+			  textField: 'sdpos',
 			  renderer:function(value){
 				//return value;
 				try{

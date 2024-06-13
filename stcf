@@ -383,8 +383,6 @@ EOF
 				};
 			 }
 		},
-		
-		cat >> $contentforpvejs1 << EOF
 		{
 			  itemId: 'sd${sdi}0',
 			  colspan: 2,

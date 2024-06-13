@@ -386,8 +386,8 @@ EOF
 		
 		cat >> $contentforpvejs << EOF
 		{
-			  itemId: 'sd${sdi}0',
-			  colspan: 2,
+			  itemId: 'sd${sdi}',
+			  colspan: 3,
 			  printBar: false,
 			  title: gettext('硬盘通电'),
 			  textField: 'sd${sdi}',

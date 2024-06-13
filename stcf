@@ -384,13 +384,13 @@ EOF
 			 }
 		},
 		
-		cat >> $contentforpvejs << EOF
+		cat >> $contentforpvejs1 << EOF
 		{
 			  itemId: 'sd${sdi}0',
 			  colspan: 2,
 			  printBar: false,
 			  title: gettext('硬盘通电'),
-			  textField: 'sd${sdi}1',
+			  textField: 'sd${sdi}',
 			  renderer:function(value){
 				//return value;
 				try{

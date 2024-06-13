@@ -393,8 +393,6 @@ EOF
 			  renderer:function(value){
 				//return value;
 				try{
-					let  v = JSON.parse(value);
-					console.log(v)
 					if (v.standy === true) {
 						return '休眠中'
 					}
@@ -402,8 +400,20 @@ EOF
 					// 通电时间
 					let pot = v.power_on_time?.hours;
 					let poth = v.power_cycle_count;
+					//let wlc = v.Wear_Leveling_Count;
 					
-					pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
+					// 计算 
+					let pots = pot;
+					let years = Math.floor(pot / (360 * 24));
+					pot -= years * 360 * 24;
+					let days = Math.floor(pot / 24);  
+					pot -= days * 24;  
+					// 格式化并重新赋值给pot
+					pot = years +'年'+ days +'天'+ pot +'小时';
+					
+					
+					//pot = ( pot !== undefined ) ? (" | 通电: " + pot + '时' + ( poth ? ',次: '+ poth : '' )) : '';
+					pot = ( pot !== undefined ) ? ("通电时间:" + pot + ',计' + pots + '小时，通电次数:' + ( poth ? poth + '次 ' : '' )) : '';
 					
 					// smart状态
 					let smart = v.smart_status?.passed;
@@ -412,7 +422,6 @@ EOF
 					} else {
 						smart = ' | SMART: ' + (smart ? '正常' : '警告!');
 					}
-					
 					
 					
 					let s = pot + smart;

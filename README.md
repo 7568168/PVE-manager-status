@@ -18,7 +18,7 @@
 
 以下来源仅供参考
 
-##来源恩山无线
+##  来源恩山无线
 
 - [来源链接](https://www.right.com.cn/forum/thread-6754687-1-1.html)
 
@@ -51,7 +51,7 @@ rm -f /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js*bak
 ```
 另外：每次pve升级之后都需要执行一次脚本，因为升级后PVE会自己还原文件
 
-##（更新后顶部显示可通过搜索链接，然后注释去除）
+## （更新后顶部显示可通过搜索链接，然后注释去除）
 
 更新：
 2023.1.10

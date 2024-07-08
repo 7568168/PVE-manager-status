@@ -3,4 +3,4 @@
 
 
 
-![image](https://github.com/a904055262/PVE-Temp-CPUFRE-NVME/blob/main/status.jpg)
+![image](https://github.com/a904055262/PVE-Temp-CPUFRE-NVME/blob/main/PVE效果图.png)

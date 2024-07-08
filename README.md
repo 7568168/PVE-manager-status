@@ -12,13 +12,19 @@
 (curl -Lf -o /tmp/temp.sh https://raw.githubusercontent.com/7568168/PVE-manager-status/stcf/stcf || curl -Lf -o /tmp/temp.sh https://cgraw.pages.dev/https://raw.githubusercontent.com/7568168/PVE-manager-status/stcf/stcf) && chmod +x /tmp/temp.sh && /tmp/temp.sh remod
 ```
 
-个人修改
+## 个人修改
+
+仅sata固态
+
 1.硬盘通电时间计数，年月日
+
 2.硬盘信息和状态分行显示，便于查看
 
-以下来源仅供参考
+
 
 ##  来源恩山无线
+
+来源仅供参考
 
 - [来源链接](https://www.right.com.cn/forum/thread-6754687-1-1.html)
 

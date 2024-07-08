@@ -50,6 +50,7 @@ rm -f /usr/share/pve-manager/js/pvemanagerlib.js*bak
 rm -f /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js*bak
 ```
 另外：每次pve升级之后都需要执行一次脚本，因为升级后PVE会自己还原文件
+
 ##（更新后顶部显示可通过搜索链接，然后注释去除）
 
 更新：

@@ -22,6 +22,7 @@
 
 ##pve上传证书后进不去了
 - [来源链接](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625)
+
 ssh上去删掉
 /etc/pve/nodes/节点名称/pve-ssl-***.pem、pve-ssl-***.key
 ```json

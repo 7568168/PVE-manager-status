@@ -20,7 +20,7 @@
 
 2.硬盘信息和状态分行显示，便于查看
 
-##pve上传证书后进不去了
+## pve上传证书后进不去了
 - [来源链接](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625)
 
 ssh上去删掉

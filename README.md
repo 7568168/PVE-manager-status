@@ -20,7 +20,15 @@
 
 2.硬盘信息和状态分行显示，便于查看
 
-
+##pve上传证书后进不去了
+- [来源链接]([https://www.right.com.cn/forum/thread-6754687-1-1.html](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625))
+/etc/pve/nodes/节点名称/pve-ssl.pem
+```json
+cd /etc/pve/nodes/pve
+```
+```json
+systemctl restart pve-cluster
+```
 
 ##  网友修改-来源恩山无线
 

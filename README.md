@@ -21,11 +21,13 @@
 2.硬盘信息和状态分行显示，便于查看
 
 ##pve上传证书后进不去了
-- [来源链接]([https://www.right.com.cn/forum/thread-6754687-1-1.html](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625))
-/etc/pve/nodes/节点名称/pve-ssl.pem
+- [来源链接](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625)
+ssh上去删掉
+/etc/pve/nodes/节点名称/pve-ssl-***.pem、pve-ssl-***.key
 ```json
 cd /etc/pve/nodes/pve
 ```
+重启服务或reboot
 ```json
 systemctl restart pve-cluster
 ```

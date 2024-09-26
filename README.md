@@ -26,7 +26,8 @@
 - [来源链接](https://hostloc.com/forum.php?mod=redirect&goto=findpost&ptid=1141984&pid=13890625)
 
 ssh上去删掉
-/etc/pve/nodes/节点名称/pve-ssl-***.pem、pve-ssl-***.key
+
+/etc/pve/nodes/【节点名称】/pve-ssl-***.pem、pve-ssl-***.key
 ```json0
 cd /etc/pve/nodes/pve
 ```
@@ -43,17 +44,17 @@ apt install powertop
 powertop
 ```
 
-### 查看当前电源策略
+## 查看当前电源策略
 
 ```json0
 cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-```
 performance
 ```
 
-### 查看可用的电源策略
-
+## 查看可用的电源策略
+```json0
 cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
+```
 # conservative ondemand userspace powersave performance schedutil
 performance	性能模式，将 CPU 频率固定工作在其支持的较高运行频率上，而不动态调节。
 userspace	系统将变频策略的决策权交给了用户态应用程序，较为灵活。

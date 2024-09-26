@@ -56,6 +56,7 @@ performance
 cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
 ```
 # conservative ondemand userspace powersave performance schedutil
+```json0
 performance	性能模式，将 CPU 频率固定工作在其支持的较高运行频率上，而不动态调节。
 userspace	系统将变频策略的决策权交给了用户态应用程序，较为灵活。
 powersave	省电模式，CPU 会固定工作在其支持的最低运行频率上。
@@ -63,13 +64,12 @@ ondemand	按需快速动态调整 CPU 频率，没有负载的时候就运行在
 conservative	与 ondemand 不同，平滑地调整 CPU 频率，频率的升降是渐变式的，稍微缓和一点。
 schedutil	负载变化回调机制，后面新引入的机制，通过触发 schedutil sugov_update 进行调频动作。
 # lscpu 查看 CPU 的频率,下面是修改
-```json0
 
 apt install cpufrequtils
 cat << 'EOF' > /etc/default/cpufrequtils
 GOVERNOR="powersave"
 EOF
-```json0
+```
 
 ## 优化显卡待机
 

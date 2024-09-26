@@ -79,19 +79,50 @@ apt install cpufrequtils
 cat << 'EOF' > /etc/default/cpufrequtils
 GOVERNOR="powersave"
 EOF
+
+一些常见路径
+这些路径在后续虚拟机迁移备份时用
+存储配置文件:
+/etc/pve/storage.cfg
+存储路径local：
+iso存放路径： /var/lib/vz/template/iso/​
+虚拟机的备份路径： /var/lib/vz/dump/​
+zfs的磁盘路径是：/dev/rpool/data/​
+存储路径local-lvm，包括挂载的NFS、SMB等其它存储设备：/mnt/pve/
+
+#PVE一键优化脚本
+首先是建议使用PVE一键优化脚本来做一些简单的优化和辅助设置，非常节省时间，教程参考：https://github.com/ivanhao/pvetools
+先删除企业源：
+rm /etc/apt/sources.list.d/pve-enterprise.list
+安装
+export LC_ALL=en_US.UTF-8
+apt update && apt -y install git && git clone https://github.com/ivanhao/pvetools.git
+启动工具（cd到目录，启动工具）
+cd ~/pvetools​
+./pvetools.sh
+卸载
+删除下载的pvetools目录即可
+基本的设置，非常方便，如配置邮箱通知等
+
 ```
+## 开启IOMMU
+ 此步骤几乎为必须
+ ```json0
+启动内核IOMMU支持
+vim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+改为
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream video=efifb:off"
 
 ## 优化显卡待机
 
 PVE 宿主机对显卡的待机很不友好，所以在 grub 添加如下 4 个关闭显卡的参数：
-```json0
+
 video=vesafb:off	禁用 vesa 启动显示设备
 video=efifb:off	禁用 efi 启动显示设备
 video=simplefb:off	5.15 内核开始直通可能需要这个参数
 initcall_blacklist=sysfb_init	部分 A 卡如 RX580 直通异常可能需要这个参数
-```
 
-```json0
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=vesafb:off video=efifb:off video=simplefb:off initcall_blacklist=sysfb_init"
 ```
 update-grub

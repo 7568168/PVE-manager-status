@@ -63,8 +63,18 @@ powersave	省电模式，CPU 会固定工作在其支持的最低运行频率上
 ondemand	按需快速动态调整 CPU 频率，没有负载的时候就运行在低频，有负载就高频运行。
 conservative	与 ondemand 不同，平滑地调整 CPU 频率，频率的升降是渐变式的，稍微缓和一点。
 schedutil	负载变化回调机制，后面新引入的机制，通过触发 schedutil sugov_update 进行调频动作。
-# lscpu 查看 CPU 的频率,下面是修改
 
+lscpu 查看 CPU 的频率
+
+修改配置文件
+文件位置/etc/init.d/cpufrequtils
+#控制台进行修改
+nano /etc/init.d/cpufrequtils
+ENABLE="true"   
+GOVERNOR="conservative"  #运行模式,依照需求调整
+MAX_SPEED="0"         #自定义模式下设置cpu频率上限   ，非自定义模式不要填写，否则导致频率锁死最低频率
+MIN_SPEED="0"         #下限
+#脚本修改
 apt install cpufrequtils
 cat << 'EOF' > /etc/default/cpufrequtils
 GOVERNOR="powersave"

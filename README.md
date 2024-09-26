@@ -74,10 +74,13 @@ EOF
 ## 优化显卡待机
 
 PVE 宿主机对显卡的待机很不友好，所以在 grub 添加如下 4 个关闭显卡的参数：
+```json0
 video=vesafb:off	禁用 vesa 启动显示设备
 video=efifb:off	禁用 efi 启动显示设备
 video=simplefb:off	5.15 内核开始直通可能需要这个参数
 initcall_blacklist=sysfb_init	部分 A 卡如 RX580 直通异常可能需要这个参数
+```
+
 ```json0
 GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=vesafb:off video=efifb:off video=simplefb:off initcall_blacklist=sysfb_init"
 ```

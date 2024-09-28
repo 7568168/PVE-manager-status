@@ -21,8 +21,9 @@
 
 
 ## 定位PVE虚拟机磁盘位置
-qm config <vmid> 查看虚拟所拥有的磁盘
+
 ```json0
+qm config <vmid> 查看虚拟所拥有的磁盘
 root@pve:~# qm config 101
 ...省略
 scsi0: local-lvm:vm-101-disk-0,size=128M
@@ -31,7 +32,7 @@ scsi2: NVME1:vm-103-disk-0,size=32G
 ...省略
 ```
 
-### 使用命令pvesm path 来定位
+使用命令pvesm path 来定位
 ```json0
 格式 ： <vmdisk>: <storageid>:<vmid>/<diskid>,<disk option>
 pvesm path local-lvm:vm-101-disk-0

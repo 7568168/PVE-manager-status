@@ -53,9 +53,7 @@ zfs的磁盘路径是：/dev/rpool/data/​
 存储路径local-lvm，包括挂载的NFS、SMB等其它存储设备：/mnt/pve/
 ```
 ## PVE虚拟机 安装arm4 aarch64系统（不通用可能）
-- [来源1](https://blog.cfornas.casa/165/)
-- - [来源2](https://blog.csdn.net/xumenghe1989/article/details/133382970)
-  - - - [来源3](https://foxi.buduanwang.vip/virtualization/pve/2036.html/)
+- [来源1](https://blog.cfornas.casa/165/) - [来源2](https://blog.csdn.net/xumenghe1989/article/details/133382970)  - [来源3](https://foxi.buduanwang.vip/virtualization/pve/2036.html/)
 ```json0
 bios 选择OVMF（UEFI）
 修改配置文件/连接到pve ssh/生成EFI

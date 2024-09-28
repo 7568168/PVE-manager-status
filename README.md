@@ -30,9 +30,10 @@ scsi1: P4510:103/vm-102-disk-0.qcow2,discard=on,size=80G,ssd=1
 scsi2: NVME1:vm-103-disk-0,size=32G
 ...省略
 ```
-格式 ： <vmdisk>: <storageid>:<vmid>/<diskid>,<disk option>
+
 ### 使用命令pvesm path 来定位
 ```json0
+格式 ： <vmdisk>: <storageid>:<vmid>/<diskid>,<disk option>
 pvesm path local-lvm:vm-101-disk-0
 pvesm path P4510:103/vm-102-disk-0.qcow2
 pvesm path NVME1:vm-103-disk-0
@@ -52,7 +53,7 @@ iso存放路径： /var/lib/vz/template/iso/​
 zfs的磁盘路径是：/dev/rpool/data/​
 存储路径local-lvm，包括挂载的NFS、SMB等其它存储设备：/mnt/pve/
 ```
-## PVE虚拟机 安装arm4 aarch64系统（不通用可能）
+## PVE虚拟机 安装arm4 aarch64系统（仅收集不通用）
 - [来源1](https://blog.cfornas.casa/165/) - [来源2](https://blog.csdn.net/xumenghe1989/article/details/133382970)  - [来源3](https://foxi.buduanwang.vip/virtualization/pve/2036.html/)
 ```json0
 bios 选择OVMF（UEFI）

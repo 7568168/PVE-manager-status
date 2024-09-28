@@ -20,6 +20,60 @@
 ```
 
 
+## 定位PVE虚拟机磁盘位置
+qm config <vmid> 查看虚拟所拥有的磁盘
+```json0
+root@pve:~# qm config 101
+...省略
+scsi0: local-lvm:vm-101-disk-0,size=128M
+scsi1: P4510:103/vm-102-disk-0.qcow2,discard=on,size=80G,ssd=1 
+scsi2: NVME1:vm-103-disk-0,size=32G
+...省略
+```
+格式 ： <vmdisk>: <storageid>:<vmid>/<diskid>,<disk option>
+### 使用命令pvesm path 来定位
+```json0
+pvesm path local-lvm:vm-101-disk-0
+pvesm path P4510:103/vm-102-disk-0.qcow2
+pvesm path NVME1:vm-103-disk-0
+输出举例：
+root@zxgg:~# pvesm path local-lvm:vm-101-disk-0
+/dev/pve/vm-101-disk-0
+```
+
+```json0
+一些常见路径
+这些路径在后续虚拟机迁移备份时用
+存储配置文件:
+/etc/pve/storage.cfg
+存储路径local：
+iso存放路径： /var/lib/vz/template/iso/​
+虚拟机的备份路径： /var/lib/vz/dump/​
+zfs的磁盘路径是：/dev/rpool/data/​
+存储路径local-lvm，包括挂载的NFS、SMB等其它存储设备：/mnt/pve/
+```
+## PVE虚拟机 安装arm4 aarch64系统
+- [来源1](https://blog.cfornas.casa/165/)
+- - [来源2](https://blog.csdn.net/xumenghe1989/article/details/133382970)
+  - - - [来源3](https://foxi.buduanwang.vip/virtualization/pve/2036.html/)
+```json0
+bios 选择OVMF（UEFI）
+修改配置文件/连接到pve ssh/生成EFI
+
+/etc/pve/qemu-server/your-server-id.conf
+把cpu: x86-64-v2-AES删除，注释掉vmgenid（ # 注释），添加arch: aarch64，将scsihw改成virtio-scsi-pci，保存并退出。
+![image](https://github.com/user-attachments/assets/b17f9757-6131-45dd-a161-4c3df00d97b8)
+```
+
+```json0
+#查找QEMU_EFI.fd
+find / -name QEMU_EFI.fd
+#文件的存储路径根据实际情况进行修改
+dd if=/usr/share/qemu-efi-aarch64/QEMU_EFI.fd of=/root/vm-101-disk-0.raw conv=notrunc
+
+#扩展为64M
+truncate -s 64M /root/vm-101-disk-0.raw
+```
 
 ## pve上传证书后web网页打不开
 
@@ -79,16 +133,6 @@ apt install cpufrequtils
 cat << 'EOF' > /etc/default/cpufrequtils
 GOVERNOR="powersave"
 EOF
-
-一些常见路径
-这些路径在后续虚拟机迁移备份时用
-存储配置文件:
-/etc/pve/storage.cfg
-存储路径local：
-iso存放路径： /var/lib/vz/template/iso/​
-虚拟机的备份路径： /var/lib/vz/dump/​
-zfs的磁盘路径是：/dev/rpool/data/​
-存储路径local-lvm，包括挂载的NFS、SMB等其它存储设备：/mnt/pve/
 
 #PVE一键优化脚本
 首先是建议使用PVE一键优化脚本来做一些简单的优化和辅助设置，非常节省时间，教程参考：https://github.com/ivanhao/pvetools

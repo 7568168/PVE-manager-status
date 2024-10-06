@@ -154,7 +154,7 @@ cd ~/pvetools​
 vim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 改为
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt pcie_acs_override=downstream video=efifb:off"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=simplefb:off textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=efifb:off video=vesafb:off"
 
 ## 优化显卡待机
 

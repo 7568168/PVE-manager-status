@@ -131,7 +131,8 @@ GOVERNOR="powersave"
 EOF
 ```
 
-#PVE一键优化脚本
+## PVE一键优化脚本
+```json0
 首先是建议使用PVE一键优化脚本来做一些简单的优化和辅助设置，非常节省时间，教程参考：https://github.com/ivanhao/pvetools
 先删除企业源：
 rm /etc/apt/sources.list.d/pve-enterprise.list
@@ -144,8 +145,8 @@ cd ~/pvetools​
 卸载
 删除下载的pvetools目录即可
 基本的设置，非常方便，如配置邮箱通知等
-
 ```
+
 ## 开启IOMMU
  此步骤几乎为必须
  ```json0

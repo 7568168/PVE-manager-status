@@ -91,7 +91,7 @@ systemctl restart pve-cluster
 ```
 
 ## 能耗控制
-- [相关链接](https://www.bilibili.com/read/cv36535302/)（https://pve.sqlsec.com/4/6/）
+- [相关链接](https://www.bilibili.com/read/cv36535302/)(https://pve.sqlsec.com/4/6/).
 ### 查看cpu频率，耗电等信息
 ```json0
 apt install powertop

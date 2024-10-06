@@ -91,7 +91,7 @@ systemctl restart pve-cluster
 ```
 
 ## 能耗控制
-- [相关链接](https://www.bilibili.com/read/cv36535302/)(https://pve.sqlsec.com/4/6/).
+- [相关链接](https://www.bilibili.com/read/cv36535302/)  [链接](https://pve.sqlsec.com/4/6/).
 ### 查看cpu频率，耗电等信息
 ```json0
 apt install powertop
@@ -148,13 +148,14 @@ cd ~/pvetools​
 ```
 
 ## 开启IOMMU
+[链接](https://www.jianshu.com/p/b407baa9cb27).
  此步骤几乎为必须
  ```json0
 启动内核IOMMU支持
 vim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 改为
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=simplefb:off textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=efifb:off video=vesafb:off"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=simplefb:off intel_pstate=disable textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=efifb:off video=vesafb:off"
 
 ## 优化显卡待机
 

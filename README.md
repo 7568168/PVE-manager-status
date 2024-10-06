@@ -91,26 +91,22 @@ systemctl restart pve-cluster
 ```
 
 ## 能耗控制
-
+- [相关链接](https://www.bilibili.com/read/cv36535302/)
 ### 查看cpu频率，耗电等信息
 ```json0
 apt install powertop
 powertop
-```
 
 ## 查看当前电源策略
-
-```json0
 cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-performance
-```
 
 ## 查看可用的电源策略
-```json0
 cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors
-```
+
+## 修改
+echo "powersave" | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
 # conservative ondemand userspace powersave performance schedutil
-```json0
 performance	性能模式，将 CPU 频率固定工作在其支持的较高运行频率上，而不动态调节。
 userspace	系统将变频策略的决策权交给了用户态应用程序，较为灵活。
 powersave	省电模式，CPU 会固定工作在其支持的最低运行频率上。
@@ -133,6 +129,7 @@ apt install cpufrequtils
 cat << 'EOF' > /etc/default/cpufrequtils
 GOVERNOR="powersave"
 EOF
+```
 
 #PVE一键优化脚本
 首先是建议使用PVE一键优化脚本来做一些简单的优化和辅助设置，非常节省时间，教程参考：https://github.com/ivanhao/pvetools

@@ -1,6 +1,6 @@
 开机自动启动脚本
-https://www.wjxy.net.cn/?p=917
-[优化](https://b.ijays.com/2024/03/pve-lxc-openwrt-adguardhome-docker.html#:~:text=%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.%201%E3%80%81).
+[服务开启](https://www.wjxy.net.cn/?p=917).
+[优化方法](https://b.ijays.com/2024/03/pve-lxc-openwrt-adguardhome-docker.html#:~:text=%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.%201%E3%80%81).
 
 ### shell脚本：
 一键给PVE添加CPU频率和各种温度显示，NVME硬盘，机械硬盘，固态硬盘信息：

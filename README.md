@@ -155,8 +155,17 @@ cd ~/pvetools​
 vim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="quiet"
 改为
-GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt video=simplefb:off intel_pstate=disable textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=efifb:off video=vesafb:off"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on iommu=pt intel_pstate=disable textonly nomodeset nofb pci=noaer pcie_acs_override=downstream,multifunction video=vesafb:off"
 
+intel_pstate=disable：禁用 CPU 频率自适应控制，使 CPU 运行在最高频率；
+intel_iommu=on：开启 IOMMU，提高虚拟化性能；
+processor.max_cstate=1：禁用深度睡眠状态，以提高响应速度；
+intel_idle.max_cstate=0：禁用省电模式，以提高响应速度。
+textonly：以文本模式启动，不加载图形界面。
+nomodeset：禁用图形驱动的自动检测和加载，这可以帮助避免图形界面的冲突。
+nofb：禁用帧缓冲设备（framebuffer）。一种机制
+pci=noaer：禁用PCI设备的高级错误报告（Advanced Error Reporting）。
+pcie_acs_override=downstream,multifunction：对PCI-E设备的ACS（Access Control Services）进行覆盖，主要是针对多功能设备和下游设备。
 ## 优化显卡待机
 
 PVE 宿主机对显卡的待机很不友好，所以在 grub 添加如下 4 个关闭显卡的参数：

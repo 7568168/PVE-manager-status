@@ -153,7 +153,8 @@ cd ~/pvetools​
 ```
 
 ## 开启IOMMU
-[链接](https://www.jianshu.com/p/b407baa9cb27).
+[链接](https://www.jianshu.com/p/b407baa9cb27).  
+[链接](https://skyao.io/learning-pve/docs/pass-through/enable/).
  此步骤几乎为必须
  ```json0
 启动内核IOMMU支持

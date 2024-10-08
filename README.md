@@ -3,6 +3,7 @@
 [优化方法](https://b.ijays.com/2024/03/pve-lxc-openwrt-adguardhome-docker.html#:~:text=%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.%201%E3%80%81).
 
 [其他](https://yqqy.top/blog/2022/soft-route-keepalive).
+[其他grun](https://www.bilibili.com/read/cv27567987/?jump_opus=1).
 ### shell脚本：
 一键给PVE添加CPU频率和各种温度显示，NVME硬盘，机械硬盘，固态硬盘信息：
 
@@ -97,6 +98,8 @@ systemctl restart pve-cluster
 
 ## 能耗控制
 - [相关链接](https://www.bilibili.com/read/cv36535302/)  [链接](https://pve.sqlsec.com/4/6/).
+
+ [相关链接](https://blog.51cto.com/picker/5020502).
 ### 查看cpu频率，耗电等信息
 ```json0
 apt install powertop

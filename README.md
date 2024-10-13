@@ -1,6 +1,6 @@
 开机自动启动脚本
 [服务开启](https://www.wjxy.net.cn/?p=917).
-[优化方法](https://ijays.com/2024/03/pve-lxc-openwrt-adguardhome-docker.html#:~:text=%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.%201%E3%80%81).
+[优化方法](https://ijays.com/2024/03/pve-lxc-openwrt-adguardhome-docker.html#:~:text=%E4%BA%8C%E3%80%81%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96.%201%E3%80%81).(https://www.zhou.pp.ua/2023/08/06/proxmox-ve%ef%bc%88n1%e7%bd%91%e7%bb%9c%e9%85%8d%e7%bd%ae%e3%80%81%e5%86%85%e5%ad%98%e4%bc%98%e5%8c%96%e3%80%81lxc%e5%ae%89%e8%a3%85openwrt%e5%92%8cadguardhome/).
 
 [其他](https://yqqy.top/blog/2022/soft-route-keepalive).
 [其他grun](https://www.bilibili.com/read/cv27567987/?jump_opus=1).
